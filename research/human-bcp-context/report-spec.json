@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "slug": "human-bcp-context",
+  "title": "β-Caryophyllene across HepG2 and hypoxic UFH-001: a processed-effect comparison",
+  "question": "Which metabolic and signaling responses to terpene exposure are reproducible, and which depend on cellular context or a specific target?",
+  "notebook": "notebooks/terputer-human-bcp-context.ipynb",
+  "execution_receipt": "research/execution-receipts/terputer-human-bcp-context.json",
+  "data_inputs": [
+    {"path":"research/human-bcp-context/data/hepg2_descriptive_effects.tsv","url":"https://raw.githubusercontent.com/Terpedia/terpedia-hepg2-bcp-rsem/d575b95ae276283746cf3db8543c777d4a86d462/research/hepg2-bcp-rsem/results/descriptive_effects.tsv","sha256":"345e58b56a7b57ca43e4cde689424acbc363a88ee5adcb164ee678425c6d3373"},
+    {"path":"research/human-bcp-context/data/ufh001_descriptive_effects.tsv","url":"https://raw.githubusercontent.com/Terpedia/terpedia-ufh001-bcp-fpkm/258d36bad9bbd8df99e8141c3e140b2f85d04a00/research/ufh001-bcp-fpkm/results/descriptive_effects.tsv","sha256":"7eef7fe7c5f0b3bedd452308a6d250c553d7fe74a2cc09eb1731b291bff2d564"},
+    {"path":"research/human-bcp-context/data/hgnc_crosswalk.tsv","url":"https://raw.githubusercontent.com/Terpedia/terpedia-ufh001-bcp-fpkm/258d36bad9bbd8df99e8141c3e140b2f85d04a00/research/ufh001-bcp-fpkm/hgnc_crosswalk.tsv","sha256":"d38e83b643c29cbb2ff7b20dc6aa8d57702f885ed8b8fcd3ae4af6d6369b998b"}
+  ],
+  "sources": [
+    {"id":"geo_hep","title":"GEO GSE276099 HepG2 series","url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE276099"},
+    {"id":"geo_ufh","title":"GEO GSE125511 UFH-001 series","url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125511"},
+    {"id":"hep_audit","title":"Pinned executed HepG2 audit","url":"https://github.com/Terpedia/terpedia-hepg2-bcp-rsem/tree/d575b95ae276283746cf3db8543c777d4a86d462"},
+    {"id":"ufh_audit","title":"Pinned executed UFH-001 audit","url":"https://github.com/Terpedia/terpedia-ufh001-bcp-fpkm/tree/258d36bad9bbd8df99e8141c3e140b2f85d04a00"},
+    {"id":"hgnc","title":"HGNC official human gene nomenclature","url":"https://www.genenames.org/download/"}
+  ],
+  "claims": [
+    {"id":"C01","class":"source-reported","text":"The GSE276099 HepG2 and GSE125511 UFH-001 series expose human cell lines to the named compound β-caryophyllene, but differ in cell line, oxygen, dose, duration, vehicle, and processing. The UFH-001 vehicle controls are reused from GSE123856.","sources":["geo_hep","geo_ufh"],"limitation":"Chemical stereochemistry and purity were not harmonized; this is neither a matched context experiment nor independent replication of one exposure protocol."},
+    {"id":"C02","class":"observed","text":"The pinned source audits contribute 17,034 HepG2 and 60,603 UFH-001 feature rows. After joining numeric Entrez IDs, 16,772 IDs overlap; 294 symbol mismatches are excluded, leaving 16,478 strict shared IDs and 10,241 that meet each audit's expression filter.","sources":["hep_audit","ufh_audit","hgnc"],"artifacts":["research/human-bcp-context/results/analysis_summary.json","research/human-bcp-context/results/symbol_mismatches.tsv","research/human-bcp-context/results/shared_gene_effects.tsv"],"limitation":"The source filters use different units (CPM and FPKM). Excluding symbol mismatches may remove valid renamed genes; no orthology problem exists, but annotation harmonization remains version-dependent."},
+    {"id":"C03","class":"observed","text":"Among 10,241 strict shared IDs above both expression filters, UFH-001 20 µM versus HepG2 effect signs agree for 5,003 (48.85%); the sign-frequency baseline is 49.44%, and Spearman rank correlation is -0.026. The UFH-001 200 µM comparison agrees for 5,006 (48.88%) versus a 49.90% baseline, with rank correlation -0.048.","sources":["hep_audit","ufh_audit"],"artifacts":["research/human-bcp-context/results/analysis_summary.json","research/human-bcp-context/results/shared_gene_effects.tsv"],"limitation":"These are descriptive signs and ranks of processed group means, not independent tested treatment effects. Baseline is calculated from observed sign frequencies, not a biological null model or p-value."},
+    {"id":"C04","class":"observed","text":"HMGCR has a descriptive log2 ratio of +1.525 at 200 µM in UFH-001 and -0.017 in HepG2; FDFT1, SQLE, and INSIG1 similarly rise in high-dose UFH-001 but are near-flat or slightly lower in HepG2. Both source tables show negative PGF ratios, but UFH-001 PGF is below its predeclared expression filter.","sources":["hep_audit","ufh_audit"],"artifacts":["research/human-bcp-context/results/marker_comparison.tsv"],"limitation":"CPM and FPKM effects and pseudocounts are not magnitude-comparable. A shared PGF sign at low UFH-001 abundance does not establish replication, and marker differences cannot be assigned to cell type alone."},
+    {"id":"C05","class":"proposed","text":"Use a matched factorial design crossing HepG2 and UFH-001 with common vehicle, oxygen, β-caryophyllene doses and timepoints, biological replicates, and a dose-by-cell interaction model. Add HMGCR or PGF perturbation with viability and target-engagement controls to test dependency.","sources":["geo_hep","geo_ufh","hep_audit","ufh_audit"],"limitation":"This experiment has not been run; the current two studies cannot estimate a causal context or target interaction."},
+    {"id":"C06","class":"proposed","text":"Reprocess both studies from raw reads against one pinned human annotation and fit within-study replicate-aware models before applying a predeclared pathway-level replication rule.","sources":["geo_hep","geo_ufh"],"limitation":"No raw-read reprocessing, variance model, adjusted p-value, or pathway analysis was performed by this comparison notebook."}
+  ],
+  "abstract":["C01","C02","C03"],
+  "sections":{
+    "background":["C01"],
+    "methods":["C02","C03"],
+    "results":["C02","C03","C04"],
+    "interpretation":["C03","C04"],
+    "limitations":["C01","C02","C03","C04"],
+    "next_steps":["C05","C06"]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generator": "terputer-report-generator-v2",
+  "specification_schema_version": 2,
+  "manifest": "research/human-bcp-context/report-spec.json",
+  "manifest_sha256": "31a16bbac71ccb1695ef605cd63045accff3217e2bbac1e3127ae536e32f76d1",
+  "notebook": "notebooks/terputer-human-bcp-context.ipynb",
+  "notebook_sha256": "3a9ebec0cf57a3b2d06d932b475ce8385b4d7657a03fa2b4e11f51db2ea71672",
+  "executed_code_cells": 1,
+  "notebook_execution_receipt": "research/execution-receipts/terputer-human-bcp-context.json",
+  "notebook_execution_receipt_sha256": "250a4455da023e71486ed163e49ae0fd15612380fc6b6176e37176cb120fe257",
+  "artifact_sha256": {
+    "research/human-bcp-context/results/analysis_summary.json": "d2fd1146d8f6737b2e5e7ac477794541c44a4644ad82137004e926eeca22cef1",
+    "research/human-bcp-context/results/marker_comparison.tsv": "8eeb70d08e0cb578f977c2eb322438aa764857f1cf2a314feafd6a02d8304779",
+    "research/human-bcp-context/results/shared_gene_effects.tsv": "3bbb94b3ab3696fd7c92d313a20a46b87df6b2ffa7eb6fc36da4548bb3bf660b",
+    "research/human-bcp-context/results/symbol_mismatches.tsv": "a0ad037c4c4774c48373a1abcd0a1b314ce6c8743663efb191618aa48d35a04b"
+  },
+  "input_sha256": {
+    "research/human-bcp-context/analysis.py": "4af8a3a4d967bd8e7e261bd28298b4abd437213dc5ae22bbe7e046b31bffc5ac",
+    "research/human-bcp-context/data/hepg2_descriptive_effects.tsv": "345e58b56a7b57ca43e4cde689424acbc363a88ee5adcb164ee678425c6d3373",
+    "research/human-bcp-context/data/hgnc_crosswalk.tsv": "d38e83b643c29cbb2ff7b20dc6aa8d57702f885ed8b8fcd3ae4af6d6369b998b",
+    "research/human-bcp-context/data/ufh001_descriptive_effects.tsv": "7eef7fe7c5f0b3bedd452308a6d250c553d7fe74a2cc09eb1731b291bff2d564"
+  },
+  "external_data_inputs": [
+    {
+      "path": "research/human-bcp-context/data/hepg2_descriptive_effects.tsv",
+      "url": "https://raw.githubusercontent.com/Terpedia/terpedia-hepg2-bcp-rsem/d575b95ae276283746cf3db8543c777d4a86d462/research/hepg2-bcp-rsem/results/descriptive_effects.tsv",
+      "sha256": "345e58b56a7b57ca43e4cde689424acbc363a88ee5adcb164ee678425c6d3373"
+    },
+    {
+      "path": "research/human-bcp-context/data/ufh001_descriptive_effects.tsv",
+      "url": "https://raw.githubusercontent.com/Terpedia/terpedia-ufh001-bcp-fpkm/258d36bad9bbd8df99e8141c3e140b2f85d04a00/research/ufh001-bcp-fpkm/results/descriptive_effects.tsv",
+      "sha256": "7eef7fe7c5f0b3bedd452308a6d250c553d7fe74a2cc09eb1731b291bff2d564"
+    },
+    {
+      "path": "research/human-bcp-context/data/hgnc_crosswalk.tsv",
+      "url": "https://raw.githubusercontent.com/Terpedia/terpedia-ufh001-bcp-fpkm/258d36bad9bbd8df99e8141c3e140b2f85d04a00/research/ufh001-bcp-fpkm/hgnc_crosswalk.tsv",
+      "sha256": "d38e83b643c29cbb2ff7b20dc6aa8d57702f885ed8b8fcd3ae4af6d6369b998b"
+    }
+  ],
+  "claim_count": 6,
+  "observed_claim_count": 3,
+  "report_sha256": "a0338e883eeda199c593d8f8a3a0d9d11571c87cb8fba89c1ce8c2542da064ba",
+  "ledger_sha256": "faae2399d3ec513350568be5f4727e8e80754306b508b4b4d95eaefa9706f021",
+  "limits": "Checks source URL syntax, local artifact presence, notebook execution metadata, and provenance; version 2 specifications also bind a recorded run to the notebook, observed-claim artifact hashes, and any declared local input hashes. Does not verify that a notebook read every declared input, live URL reachability, biological replication, or claim truth."
+}

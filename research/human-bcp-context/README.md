@@ -1,0 +1,9 @@
+# Methods and interpretation
+
+The two source notebooks generated within-study group-mean effects from processed bulk RNA-seq matrices. This comparison does not reinterpret their source units as counts. It restores their output tables from pinned commits, checks SHA-256, joins exact numeric Entrez IDs, verifies UFH-001 IDs against a pinned one-to-one HGNC crosswalk, and excludes shared IDs whose symbols disagree. The complete mismatch list is published.
+
+For all strict shared IDs and for the subset above each upstream expression filter, the analysis compares effect signs and Spearman ranks. A sign-frequency baseline is calculated as the agreement expected from the two observed positive/negative proportions: `p_up_A * p_up_B + (1-p_up_A) * (1-p_up_B)`. It is a descriptive balance check, not a p-value or a biological null model. A 1.0-pseudocount sensitivity is reported alongside 0.1. Pseudocount signs do not change for positive group means, while magnitude ranks can change. CPM and FPKM scales make cross-study effect magnitudes incomparable.
+
+The studies vary simultaneously in cell identity, oxygen, dose, duration, vehicle, and processing. The UFH-001 controls are reused in GSE123856 and shared by its two dose contrasts. Thus directional disagreement cannot be assigned to cell identity, and directional agreement does not prove replication of one treatment effect. Predeclared markers reveal that high-dose UFH-001 HMGCR is higher while HepG2 HMGCR is nearly flat; UFH-001 PGF is low abundance and excluded by its expression filter. No differential-expression model, pathway significance, causal interaction, direct binding, or target dependency is inferred.
+
+The [report specification](report-spec.json) links each claim to a source or notebook artifact. The [generation receipt](generated/generation-receipt.json) binds the executed notebook, inputs, outputs, and report hashes.
