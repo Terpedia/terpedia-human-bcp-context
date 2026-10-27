@@ -4,6 +4,10 @@ This forkable project compares the pinned processed-effect tables from [HepG2 GS
 
 The strict join retains 16,478 shared Entrez IDs after excluding 294 symbol mismatches; 10,241 pass each upstream audit's expression filter. For those rows, effect direction agrees for 48.85% at UFH-001 20 µM and 48.88% at 200 µM against the HepG2 contrast, close to sign-frequency baselines of 49.44% and 49.90%. This is a descriptive comparison of processed **bulk** RNA-seq summaries. The studies differ in cell line, oxygen, dose, exposure duration, vehicle, and quantification. There is no matched context interaction, cross-study DEG replication claim, or target-specific Perturb-seq inference.
 
+## Count-based follow-up status
+
+The [HepG2 raw-read white paper](https://github.com/Terpedia/terpedia-hepg2-bcp-rsem/blob/f0e0a56ae1b510fa622a11e218fe6b3b8d2f8d54/research/hepg2-bcp-raw-counts/generated/white-paper.md) now reports a separate, receipt-pinned count-model contrast. It does not replace the processed-effect values used in this frozen comparison. The [UFH-001 raw-count notebook](https://github.com/Terpedia/terpedia-ufh001-bcp-fpkm/blob/main/notebooks/terputer-ufh001-bcp-raw-counts.ipynb) and [cross-context comparison notebook](https://github.com/Terpedia/terpedia-ufh001-bcp-fpkm/blob/main/notebooks/terputer-bcp-cross-context.ipynb) are method artifacts until their execution receipts and results are published. Count-based directional comparison will be reported separately; no updated cross-context result is asserted here.
+
 ## Reproduce
 
 Use Python 3.10 or newer and Node.js:
